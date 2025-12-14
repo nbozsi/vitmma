@@ -1,0 +1,61 @@
+Running 01_processing.py...
+INFO: Scanning 21 directories for annotation files...
+INFO: Starting time-series extraction...
+WARNING: File not found: '4e85a92d-XAU_30min_001_converted.csv' in folder 'DMQSIV'
+WARNING: File not found: '7623a35c-EURUSD_15min_001_converted_fixed.csv' in folder 'DMQSIV'
+WARNING: File not found: '113e3543-EURUSD_1hour_002_utc.csv' in folder 'IV92EM'
+WARNING: File not found: '5026dc93-EURUSD_1hour_003_utc.csv' in folder 'IV92EM'
+WARNING: File not found: 'ace21a6f-EURUSD_1hour_001_utc.csv' in folder 'IV92EM'
+WARNING: File not found: '3f6bd4f4-spy_15min.csv' in folder 'JRG6JB'
+WARNING: File not found: '400e7f75-spy_15min_2.csv' in folder 'JRG6JB'
+WARNING: File not found: 'd992bfe2-aapl_5min.csv' in folder 'JRG6JB'
+WARNING: File not found: '939fe952-PROBAAAAA_fixed.csv' in folder 'W0S0Z6'
+WARNING: File not found: '001c3405-EURUSD_1minute_004.csv' in folder 'XQAR2Z'
+WARNING: File not found: 'fb68d99e-XAU_30m_data_limited.csv' in folder 'XQAR2Z'
+Found 1142 annotations.
+Successfully compiled 214520 time-series segments.
+Extracted 214520 time-series rows.
+Saved train.csv (610 segs) and test.csv (153 segs) to /app/output
+Running 02_train.py...
+Loading training data from /app/output/train.csv...
+Preprocessing training segments
+Training MLPClassifier on 576 samples, with hidden layers 128, 64 and max_iter 5000
+Saving model and encoder
+Running 03_evaluation.py...
+Preprocessing 153 test segments...
+
+Running Predictions...
+========================================
+CLASSIFICATION REPORT
+========================================
+                 precision    recall  f1-score   support
+
+ Bearish Normal       0.57      0.83      0.68        42
+Bearish Pennant       0.00      0.00      0.00        16
+  Bearish Wedge       0.36      0.25      0.30        16
+ Bullish Normal       0.60      0.78      0.67        40
+Bullish Pennant       0.31      0.33      0.32        12
+  Bullish Wedge       0.75      0.27      0.40        22
+
+       accuracy                           0.54       148
+      macro avg       0.43      0.41      0.39       148
+   weighted avg       0.50      0.54      0.49       148
+
+========================================
+BINARY (DIRECTIONAL) REPORT
+========================================
+              precision    recall  f1-score   support
+
+     Bearish       0.85      0.86      0.86        74
+     Bullish       0.86      0.85      0.86        74
+
+    accuracy                           0.86       148
+   macro avg       0.86      0.86      0.86       148
+weighted avg       0.86      0.86      0.86       148
+
+Binary Confusion Matrix:
+           | Pred Bull  | Pred Bear 
+------------------------------------
+True Bull  | 63         | 11        
+True Bear  | 10         | 64        
+Pipeline finished successfully.
