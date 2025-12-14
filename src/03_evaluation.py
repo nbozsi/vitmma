@@ -7,7 +7,7 @@ from scipy.interpolate import interp1d
 from sklearn.metrics import classification_report, confusion_matrix, ConfusionMatrixDisplay
 
 # --- CONFIGURATION ---
-TEST_DATA_FILE = "/app/output/test.csv"  # Note: 01_processing.py saved it as 'test.csv'
+TEST_DATA_FILE = "/app/output/test.csv"
 MODEL_FILE = "/app/output/flag_classifier.joblib"
 ENCODER_FILE = "/app/output/label_encoder.joblib"
 FIGURE_OUTPUT = "/app/output/binary_confusion_matrix.png"

@@ -59,7 +59,7 @@ if __name__ == "__main__":
     clf = MLPClassifier(hidden_layer_sizes=(128, 64), max_iter=5000, random_state=1)
     clf.fit(X_train, y_train)
 
-    # 5. Save Artifacts
+    # Save models
     print("Saving model and encoder")
     joblib.dump(clf, MODEL_FILE)
     joblib.dump(le, ENCODER_FILE)
