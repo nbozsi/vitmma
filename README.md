@@ -43,6 +43,6 @@ Run the following command in the root directory of the repository to build the D
 docker build -t bullflag_classifier .
 ```
 #### Run
-```docker run --rm -v <path/to/data>:/data -v <path/to/app/output>:/app/output bullflag_classifier > training_log.txt 2>&1```
+```docker run --rm -v <path/to/data>:/data -v <path/to/app/output>:/app/output bullflag_classifier > training_log.txt 2>&1``` \
 I made the script to read the csvs from `/data/bullflagdetector/<neptun_code>/*.csv`.
 
