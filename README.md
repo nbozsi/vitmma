@@ -28,6 +28,8 @@ The solution utilizes a **Multi-Layer Perceptron (MLP)** classifier implemented 
 3.  **Training**: The model is trained on an 80/20 train/test split.
 4.  **Evaluation**: The model is evaluated on unseen test data, producing detailed classification reports and a "Binary Confusion Matrix" to assess its ability to distinguish Bullish vs. Bearish trends.
 
+**Results**:
+The data is inconsistent and the flags are not that reliable, the reading was pretty hard. The classifier distuingishes Bullish and Bearish quite well, but the accuracy is much lower on the subcategories.
 
 ### Docker Instructions
 
