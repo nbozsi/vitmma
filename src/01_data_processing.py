@@ -182,16 +182,14 @@ if __name__ == "__main__":
     if not meta_df.is_empty():
         print(f"Found {len(meta_df)} annotations.")
 
-        # 2. Extract Data (Using the PARENT directory of the pattern)
-        # We pass "/data/bullflagdetector" because the pattern was "/data/bullflagdetector/*"
+        # Extract Data
         search_root = str(Path(INPUT_PATTERN).parent)
         ts_df = build_timeseries_dataset(meta_df.to_pandas(), search_root)
 
         if not ts_df.empty:
             print(f"Extracted {len(ts_df)} time-series rows.")
 
-            # 3. SPLIT DATA (Train/Test)
-            # We do this here so 02_train.py gets ready-to-use files
+            # SPLIT DATA (Train/Test)
             unique_ids = ts_df["segment_id"].unique()
             if len(unique_ids) > 1:
                 train_ids, test_ids = train_test_split(unique_ids, test_size=0.2, random_state=42)
