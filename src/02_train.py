@@ -46,7 +46,7 @@ if __name__ == "__main__":
     try:
         df_train = pd.read_csv(TRAIN_FILE)
     except FileNotFoundError:
-        print("Error: train.csv not found. Did 01_processing.py run successfully?")
+        print("Error: train.csv not found")
         exit(1)
 
     print("Preprocessing training segments")
